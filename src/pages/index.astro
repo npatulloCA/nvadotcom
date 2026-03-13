@@ -9,10 +9,10 @@ const rawContent = home?.content ?? '';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const carouselSlides = [
+  { src: `${base}/carousel/hoppusbanner.png`, alt: 'New Vintage Amplifiers on stage' },
   { src: `${base}/carousel/112banner.png`, alt: 'New Vintage Amplifiers 1x12 cabinet' },
   { src: `${base}/carousel/roguebanner.png`, alt: 'Rogue 50 amplifier head' },
   { src: `${base}/carousel/mkbanner.png`, alt: 'New Vintage Amplifiers combo' },
-  { src: `${base}/carousel/hoppusbanner.png`, alt: 'New Vintage Amplifiers on stage' },
 ];
 const transformContent = (html: string) =>
   html
