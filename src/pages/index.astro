@@ -13,6 +13,8 @@ const transformContent = (html: string) =>
       const localPath = path || '/';
       return `href="${localPath}"`;
     })
+    // Rewrite images that pointed at the old domain to local uploads
+    .replace(/src="https?:\/\/(?:www\.)?newvintageamps\.com\/uploads\//g, `src="${base}/uploads/`)
     // Fix image paths that were root-relative (e.g. /uploads/...)
     .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
     // Fix internal links that were root-relative (e.g. /guitar-amps/)

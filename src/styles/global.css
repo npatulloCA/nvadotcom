@@ -5,8 +5,8 @@
   --color-text: #e8e8e8;
   --color-text-muted: #a0a0a0;
   --color-accent: #c9a227;
-  --color-link: #d4af37;
-  --color-link-hover: #e8c547;
+  --color-link: #c62828;
+  --color-link-hover: #ef5350;
   /* Typography */
   --font-heading: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -77,12 +77,11 @@ img {
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space);
-  height: var(--header-height);
+  padding: 0.75rem var(--space);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space);
+  gap: 2.5rem;
 }
 
 .logo {
@@ -134,8 +133,8 @@ img {
   display: block;
   padding: 0.5rem 0.75rem;
   color: var(--color-text-muted);
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 .nav-item > a:hover,
 .nav-item > a.active {
@@ -229,6 +228,8 @@ img {
 /* Page content (from WordPress HTML) */
 .page-content {
   font-size: 1rem;
+  max-width: 760px;
+  margin: 0 auto;
 }
 .page-content :global(h1),
 .page-content :global(h2),

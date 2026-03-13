@@ -30,6 +30,7 @@ const transformContent = (html: string) =>
       const localPath = path || '/';
       return `href="${localPath}"`;
     })
+    .replace(/src="https?:\/\/(?:www\.)?newvintageamps\.com\/uploads\//g, `src="${base}/uploads/`)
     .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
     .replace(/href="\//g, `href="${base}/`);
 
