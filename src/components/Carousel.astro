@@ -15,8 +15,8 @@ const { slides } = Astro.props;
   <div class="carousel-track-container">
     <ul class="carousel-track" role="list">
       {slides.map((slide, i) => (
-        <li class="carousel-slide" data-index={i} role="group" aria-roledescription="slide" aria-label={slide.alt}>
-          <img src={slide.src} alt={slide.alt} width="1164" height="400" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        <li class="carousel-slide" data-index={i} data-active={i === 0} role="group" aria-roledescription="slide" aria-label={slide.alt}>
+          <img src={slide.src} alt={slide.alt} width="1164" height="520" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
         </li>
       ))}
     </ul>
@@ -50,9 +50,9 @@ const { slides } = Astro.props;
     let intervalId: ReturnType<typeof setInterval> | null = null;
     const AUTO_MS = 5000;
 
-    function goTo(i: number) {
+    function goTo(i) {
       index = ((i % total) + total) % total;
-      track?.style.setProperty('--carousel-index', String(index));
+      slides.forEach((s, j) => s.setAttribute('data-active', j === index ? 'true' : 'false'));
       dots.forEach((d, j) => d.setAttribute('aria-selected', j === index ? 'true' : 'false'));
     }
 

@@ -17,7 +17,8 @@ const pages = (await import('../data/pages.json')).default as Array<{ path: stri
 const page = pages.find((p) => p.path === path);
 
 if (!page) {
-  return Astro.redirect('/404');
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+  return Astro.redirect(`${base}/404/`);
 }
 
 const title = page.title;

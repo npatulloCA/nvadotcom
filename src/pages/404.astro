@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
 ---
 <Layout title="Page not found">
   <article class="page-content">
     <h1>Page not found</h1>
-    <p>The page you're looking for doesn't exist. <a href="/">Return home</a>.</p>
+    <p>The page you're looking for doesn't exist. <a href={base}>Return home</a>.</p>
   </article>
 </Layout>
