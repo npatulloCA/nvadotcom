@@ -6,9 +6,10 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  preloadImage?: string;
 }
 
-const { title, description = 'Manufacturers of hand-made guitar and bass amplifiers.' } = Astro.props;
+const { title, description = 'Manufacturers of hand-made guitar and bass amplifiers.', preloadImage } = Astro.props;
 const nav = (await import('../data/nav.json')).default;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
@@ -27,6 +28,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap"
       rel="stylesheet"
     />
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>

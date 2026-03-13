@@ -30,7 +30,7 @@ const transformContent = (html: string) =>
 
 const content = rawContent ? transformContent(rawContent) : '';
 ---
-<Layout title={title}>
+<Layout title={title} preloadImage={`${base}/carousel/hoppusbanner.png`}>
   <Carousel slides={carouselSlides} />
   <article class="page-content">
     {content ? (

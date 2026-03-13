@@ -16,7 +16,7 @@ const { slides } = Astro.props;
     <ul class="carousel-track" role="list">
       {slides.map((slide, i) => (
         <li class="carousel-slide" data-index={i} data-active={i === 0} role="group" aria-roledescription="slide" aria-label={slide.alt}>
-          <img src={slide.src} alt={slide.alt} width="1164" height="520" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+          <img src={slide.src} alt={slide.alt} width="1164" height="520" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async" />
         </li>
       ))}
     </ul>
