@@ -10,6 +10,7 @@ interface Props {
 
 const { title, description = 'Manufacturers of hand-made guitar and bass amplifiers.' } = Astro.props;
 const nav = (await import('../data/nav.json')).default;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@ const nav = (await import('../data/nav.json')).default;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
     <title>{title} | New Vintage Amplifiers</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,8 +29,8 @@ const nav = (await import('../data/nav.json')).default;
     <a href="#main" class="skip-link">Skip to content</a>
     <header class="site-header">
       <div class="header-inner">
-        <a href="/" class="logo" aria-label="New Vintage Amplifiers home">
-          <img src="/logo.png" alt="New Vintage Amplifiers" width="250" height="74" />
+        <a href={base || '/'} class="logo" aria-label="New Vintage Amplifiers home">
+          <img src={`${base}/logo.png`} alt="New Vintage Amplifiers" width="250" height="74" />
         </a>
         <button type="button" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>

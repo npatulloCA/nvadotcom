@@ -6,21 +6,37 @@ interface NavItem {
 }
 
 const { items } = Astro.props as { items: NavItem[] };
-const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// Normalize current path to be relative to the base so active states work
+const currentPath = Astro.url.pathname
+  .replace(base, '')
+  .replace(/\/$/, '') || '/';
+
+const toHref = (path: string) => {
+  if (path === '/') return base || '/';
+  return `${base}${path}`;
+};
 ---
 
 <ul class="nav-list">
   {items.map((item) => {
-    const isActive = currentPath === item.path.replace(/\/$/, '') || (item.path !== '/' && currentPath.startsWith(item.path.replace(/\/$/, '')));
+    const itemPath = item.path.replace(/\/$/, '');
+    const isActive = currentPath === itemPath || (itemPath !== '/' && currentPath.startsWith(itemPath));
     const hasChildren = item.children && item.children.length > 0;
+    const href = toHref(item.path);
     return (
       <li class={`nav-item ${hasChildren ? 'has-children' : ''}`}>
-        <a href={item.path} class={isActive ? 'active' : ''}>{item.title}</a>
+        <a href={href} class={isActive ? 'active' : ''}>{item.title}</a>
         {hasChildren && (
           <ul class="nav-sublist">
             {item.children.map((child) => (
               <li class="nav-subitem">
-                <a href={child.path} class={currentPath === child.path.replace(/\/$/, '') ? 'active' : ''}>{child.title}</a>
+                <a
+                  href={toHref(child.path)}
+                  class={currentPath === child.path.replace(/\/$/, '') ? 'active' : ''}
+                >
+                  {child.title}
+                </a>
               </li>
             ))}
           </ul>

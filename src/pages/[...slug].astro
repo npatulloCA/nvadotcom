@@ -21,7 +21,15 @@ if (!page) {
 }
 
 const title = page.title;
-const content = page.content ?? '';
+const rawContent = page.content ?? '';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const transformContent = (html: string) =>
+  html
+    .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
+    .replace(/href="\//g, `href="${base}/`);
+
+const content = rawContent ? transformContent(rawContent) : '';
 ---
 <Layout title={title}>
   <article class="page-content">

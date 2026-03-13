@@ -3,7 +3,17 @@ import Layout from '../layouts/Layout.astro';
 const pages = (await import('../data/pages.json')).default;
 const home = pages.find((p: { path: string }) => p.path === '/');
 const title = home?.title === 'home' ? 'Home' : (home?.title || 'Home');
-const content = home?.content ?? '';
+const rawContent = home?.content ?? '';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const transformContent = (html: string) =>
+  html
+    // Fix image paths that were root-relative (e.g. /uploads/...)
+    .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
+    // Fix internal links that were root-relative (e.g. /guitar-amps/)
+    .replace(/href="\//g, `href="${base}/`);
+
+const content = rawContent ? transformContent(rawContent) : '';
 ---
 <Layout title={title}>
   <article class="page-content">
