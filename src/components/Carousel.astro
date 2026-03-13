@@ -15,7 +15,7 @@ const { slides } = Astro.props;
   <div class="carousel-track-container">
     <ul class="carousel-track" role="list">
       {slides.map((slide, i) => (
-        <li class="carousel-slide" data-index={i} data-active={i === 0} role="group" aria-roledescription="slide" aria-label={slide.alt}>
+        <li class={`carousel-slide${i === 0 ? ' is-active' : ''}`} data-index={i} data-active={i === 0 ? 'true' : 'false'} role="group" aria-roledescription="slide" aria-label={slide.alt}>
           <img src={slide.src} alt={slide.alt} width="1164" height="520" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding="async" />
         </li>
       ))}
@@ -52,7 +52,11 @@ const { slides } = Astro.props;
 
     function goTo(i) {
       index = ((i % total) + total) % total;
-      slides.forEach((s, j) => s.setAttribute('data-active', j === index ? 'true' : 'false'));
+      slides.forEach((s, j) => {
+        const active = j === index;
+        s.setAttribute('data-active', active ? 'true' : 'false');
+        s.classList.toggle('is-active', active);
+      });
       dots.forEach((d, j) => d.setAttribute('aria-selected', j === index ? 'true' : 'false'));
     }
 
