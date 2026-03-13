@@ -1,0 +1,94 @@
+---
+interface Slide {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<section class="hero-carousel" aria-label="Featured products and artists">
+  <div class="carousel-track-container">
+    <ul class="carousel-track" role="list">
+      {slides.map((slide, i) => (
+        <li class="carousel-slide" data-index={i} role="group" aria-roledescription="slide" aria-label={slide.alt}>
+          <img src={slide.src} alt={slide.alt} width="1164" height="400" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+        </li>
+      ))}
+    </ul>
+  </div>
+  <button type="button" class="carousel-btn carousel-btn-prev" aria-label="Previous slide">
+    <span aria-hidden="true">‹</span>
+  </button>
+  <button type="button" class="carousel-btn carousel-btn-next" aria-label="Next slide">
+    <span aria-hidden="true">›</span>
+  </button>
+  <div class="carousel-dots" role="tablist" aria-label="Carousel slides">
+    {slides.map((_, i) => (
+      <button type="button" class="carousel-dot" role="tab" aria-selected={i === 0} aria-label={`Slide ${i + 1}`} data-index={i}></button>
+    ))}
+  </div>
+</section>
+
+<script>
+  (function () {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+    const prevBtn = carousel.querySelector('.carousel-btn-prev');
+    const nextBtn = carousel.querySelector('.carousel-btn-next');
+    const total = slides.length;
+    if (total === 0) return;
+
+    let index = 0;
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+    const AUTO_MS = 5000;
+
+    function goTo(i: number) {
+      index = ((i % total) + total) % total;
+      track?.style.setProperty('--carousel-index', String(index));
+      dots.forEach((d, j) => d.setAttribute('aria-selected', j === index ? 'true' : 'false'));
+    }
+
+    function next() {
+      goTo(index + 1);
+    }
+
+    function startAuto() {
+      stopAuto();
+      intervalId = setInterval(next, AUTO_MS);
+    }
+    function stopAuto() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      goTo(index - 1);
+      startAuto();
+    });
+    nextBtn?.addEventListener('click', () => {
+      next();
+      startAuto();
+    });
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        goTo(i);
+        startAuto();
+      });
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
+
+    startAuto();
+  })();
+</script>

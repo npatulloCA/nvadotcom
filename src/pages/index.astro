@@ -1,11 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel.astro';
+
 const pages = (await import('../data/pages.json')).default;
 const home = pages.find((p: { path: string }) => p.path === '/');
 const title = home?.title === 'home' ? 'Home' : (home?.title || 'Home');
 const rawContent = home?.content ?? '';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const carouselSlides = [
+  { src: `${base}/carousel/112banner.png`, alt: 'New Vintage Amplifiers 1x12 cabinet' },
+  { src: `${base}/carousel/roguebanner.png`, alt: 'Rogue 50 amplifier head' },
+  { src: `${base}/carousel/mkbanner.png`, alt: 'New Vintage Amplifiers combo' },
+  { src: `${base}/carousel/hoppusbanner.png`, alt: 'New Vintage Amplifiers on stage' },
+];
 const transformContent = (html: string) =>
   html
     // Rewrite old absolute WordPress links on newvintageamps.com to local paths
@@ -23,6 +31,7 @@ const transformContent = (html: string) =>
 const content = rawContent ? transformContent(rawContent) : '';
 ---
 <Layout title={title}>
+  <Carousel slides={carouselSlides} />
   <article class="page-content">
     {content ? (
       <Fragment set:html={content} />
