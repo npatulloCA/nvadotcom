@@ -33,6 +33,8 @@ Static rebuild of [newvintageamps.com](https://newvintageamps.com) using [Astro]
    - The workflow in `.github/workflows/deploy.yml` runs on push to `main`.
    - It installs deps, copies `wordpress-uploads/` into `public/uploads/`, runs `npm run build`, and deploys the `dist/` artifact to GitHub Pages.
 
+**If you see "Get Pages site failed" or "HttpError: Not Found":** GitHub Pages is not enabled or the source is wrong. In the repo go to **Settings** → **Pages** (under Code and automation). Under **Build and deployment**, set **Source** to **GitHub Actions**, then save. Re-run the workflow after that.
+
 **If the build failed with “Dependencies lock file is not found”:** The workflow no longer requires a lockfile; it uses `npm install` without caching. To get faster, reproducible installs, run `npm install` locally, commit `package-lock.json`, then in `.github/workflows/deploy.yml` you can add back `cache: "npm"` under the Setup Node step and use `npm ci` instead of `npm install`.  
 **If you see a Node.js deprecation warning:** The workflow uses `actions/setup-node@v4` with Node 20; that’s the current recommended setup. Warnings about older Node versions (e.g. 16) can be ignored.
 

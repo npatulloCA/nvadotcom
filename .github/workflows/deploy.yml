@@ -1,3 +1,7 @@
+# Deploy to GitHub Pages
+# Required one-time setup: In the repo go to Settings → Pages → Build and deployment →
+# set "Source" to "GitHub Actions". Until that is done, the deploy step will fail with
+# "Get Pages site failed" / HttpError: Not Found.
 name: Deploy to GitHub Pages
 
 on:
