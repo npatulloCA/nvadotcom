@@ -1,0 +1,16 @@
+{
+  "name": "newvintageamps",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "npm run copy-uploads && astro build",
+    "copy-uploads": "mkdir -p public/uploads && cp -R wordpress-uploads/* public/uploads/ 2>/dev/null || true",
+    "preview": "astro preview",
+    "extract": "python3 scripts/extract-content.py src/data"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  }
+}

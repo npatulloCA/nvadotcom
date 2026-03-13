@@ -1,0 +1,290 @@
+/* New Vintage Amplifiers – global styles */
+:root {
+  --color-bg: #1a1a1a;
+  --color-surface: #252525;
+  --color-text: #e8e8e8;
+  --color-text-muted: #a0a0a0;
+  --color-accent: #c9a227;
+  --color-link: #d4af37;
+  --color-link-hover: #e8c547;
+  --font-heading: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  --max-width: 1164px;
+  --header-height: 4rem;
+  --space: 1.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.skip-link {
+  position: absolute;
+  top: -3rem;
+  left: var(--space);
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+  z-index: 100;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: var(--space);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-link-hover);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.logo:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+.nav-toggle span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+/* Nav */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  position: relative;
+}
+.nav-item > a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.nav-item > a:hover,
+.nav-item > a.active {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-sublist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 12rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  background: var(--color-surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+.nav-item:hover .nav-sublist {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-subitem a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+.nav-subitem a:hover {
+  color: var(--color-text);
+  background: rgba(255,255,255,0.05);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+  }
+  .nav.open {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space);
+    gap: 0;
+  }
+  .nav-item {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+  .nav-sublist {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Main */
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space);
+  padding-bottom: 4rem;
+}
+
+/* Page content (from WordPress HTML) */
+.page-content {
+  font-size: 1rem;
+}
+.page-content :global(h1),
+.page-content :global(h2),
+.page-content :global(h3),
+.page-content :global(h4) {
+  font-family: var(--font-heading);
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--color-text);
+}
+.page-content :global(h1) { font-size: 1.75rem; }
+.page-content :global(h2) { font-size: 1.5rem; }
+.page-content :global(h3),
+.page-content :global(h4) { font-size: 1.25rem; }
+.page-content :global(p) {
+  margin: 0 0 1em;
+}
+.page-content :global(ul),
+.page-content :global(ol) {
+  margin: 0 0 1em;
+  padding-left: 1.5em;
+}
+.page-content :global(img) {
+  margin: 1em auto;
+  border-radius: 4px;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: auto;
+  background: var(--color-surface);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem var(--space);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.5rem;
+}
+
+.footer-contact {
+  margin: 0 0 0.5rem;
+}
+.footer-contact a {
+  color: var(--color-link);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}

@@ -1,0 +1,31 @@
+---
+interface NavItem {
+  title: string;
+  path: string;
+  children: NavItem[];
+}
+
+const { items } = Astro.props as { items: NavItem[] };
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<ul class="nav-list">
+  {items.map((item) => {
+    const isActive = currentPath === item.path.replace(/\/$/, '') || (item.path !== '/' && currentPath.startsWith(item.path.replace(/\/$/, '')));
+    const hasChildren = item.children && item.children.length > 0;
+    return (
+      <li class={`nav-item ${hasChildren ? 'has-children' : ''}`}>
+        <a href={item.path} class={isActive ? 'active' : ''}>{item.title}</a>
+        {hasChildren && (
+          <ul class="nav-sublist">
+            {item.children.map((child) => (
+              <li class="nav-subitem">
+                <a href={child.path} class={currentPath === child.path.replace(/\/$/, '') ? 'active' : ''}>{child.title}</a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    );
+  })}
+</ul>

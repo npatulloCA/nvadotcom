@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+const pages = (await import('../data/pages.json')).default;
+const home = pages.find((p: { path: string }) => p.path === '/');
+const title = home?.title === 'home' ? 'Home' : (home?.title || 'Home');
+const content = home?.content ?? '';
+---
+<Layout title={title}>
+  <article class="page-content">
+    {content ? (
+      <Fragment set:html={content} />
+    ) : (
+      <p>New Vintage Amplifiers — manufacturers of hand-made guitar and bass amplifiers.</p>
+    )}
+  </article>
+</Layout>

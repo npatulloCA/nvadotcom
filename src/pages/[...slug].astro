@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  const pages = (await import('../data/pages.json')).default as Array<{ path: string }>;
+  return pages
+    .filter((p) => p.path !== '/')
+    .map((p) => {
+      const slug = p.path.replace(/^\/|\/$/g, '');
+      return { params: { slug } };
+    });
+}
+
+const { slug } = Astro.params;
+const path = '/' + (typeof slug === 'string' ? slug : (slug ?? []).join('/')) + '/';
+const pages = (await import('../data/pages.json')).default as Array<{ path: string; title: string; content: string }>;
+const page = pages.find((p) => p.path === path);
+
+if (!page) {
+  return Astro.redirect('/404');
+}
+
+const title = page.title;
+const content = page.content ?? '';
+---
+<Layout title={title}>
+  <article class="page-content">
+    <h1>{title}</h1>
+    {content ? <Fragment set:html={content} /> : null}
+  </article>
+</Layout>
