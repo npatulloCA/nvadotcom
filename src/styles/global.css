@@ -7,8 +7,9 @@
   --color-accent: #c9a227;
   --color-link: #d4af37;
   --color-link-hover: #e8c547;
-  --font-heading: 'Libre Baskerville', Georgia, serif;
-  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography */
+  --font-heading: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --max-width: 1164px;
   --header-height: 4rem;
   --space: 1.5rem;

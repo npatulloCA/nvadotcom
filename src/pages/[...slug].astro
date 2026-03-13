@@ -26,6 +26,10 @@ const rawContent = page.content ?? '';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const transformContent = (html: string) =>
   html
+    .replace(/href="https?:\/\/(?:www\.)?newvintageamps\.com(\/[^"]*)?"/g, (_match, path) => {
+      const localPath = path || '/';
+      return `href="${localPath}"`;
+    })
     .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
     .replace(/href="\//g, `href="${base}/`);
 

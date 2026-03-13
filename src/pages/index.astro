@@ -8,6 +8,11 @@ const rawContent = home?.content ?? '';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const transformContent = (html: string) =>
   html
+    // Rewrite old absolute WordPress links on newvintageamps.com to local paths
+    .replace(/href="https?:\/\/(?:www\.)?newvintageamps\.com(\/[^"]*)?"/g, (_match, path) => {
+      const localPath = path || '/';
+      return `href="${localPath}"`;
+    })
     // Fix image paths that were root-relative (e.g. /uploads/...)
     .replace(/src="\/uploads\//g, `src="${base}/uploads/`)
     // Fix internal links that were root-relative (e.g. /guitar-amps/)
