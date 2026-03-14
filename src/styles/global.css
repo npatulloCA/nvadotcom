@@ -71,6 +71,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  overflow: visible;
   background-color: #181818;
   background-repeat: no-repeat;
   background-position: center top;
@@ -205,8 +206,9 @@ img {
     transition: max-height 0.3s;
   }
   .nav.open {
-    max-height: 80vh;
+    max-height: calc(100vh - 5rem);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-list {
     flex-direction: column;
