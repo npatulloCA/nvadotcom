@@ -230,16 +230,24 @@ img {
   }
 }
 
-/* Hero carousel */
+/* Hero carousel – responsive by width % and aspect-ratio, no fixed pixel height */
 .hero-carousel {
   position: relative;
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto var(--space);
   border-radius: 0;
   overflow: hidden;
   background: #0a0a0a;
   aspect-ratio: 960 / 480;
-  min-height: 320px;
+  min-height: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    /* On small screens, slightly shorter aspect so it doesn’t dominate; still responsive */
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .carousel-track-container {
@@ -277,7 +285,10 @@ img {
 .carousel-slide img {
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  object-position: center;
   display: block;
 }
 
@@ -384,6 +395,27 @@ img {
 .page-content img {
   margin: 1em auto;
   border-radius: 4px;
+}
+
+/* Responsive embeds – scale by viewport width, not fixed pixels */
+.page-content iframe,
+.page-content video {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Preserve aspect ratio for common embed sizes (YouTube 16:9, etc.) */
+.page-content iframe {
+  aspect-ratio: 16 / 9;
+}
+
+/* SoundCloud-style tall embeds: use 2:1 on small screens so they don’t overflow */
+@media (max-width: 768px) {
+  .page-content iframe[height="450"] {
+    aspect-ratio: 2 / 1;
+  }
 }
 
 /* Page content – wide layout (e.g. guitar-amps grid) */
