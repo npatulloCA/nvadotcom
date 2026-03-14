@@ -56,12 +56,26 @@ const bgImageUrl = `url('${base ? base + '/' : '/'}nva-background.png')`;
     </main>
     <Footer />
     <script>
+      function closeNav() {
+        const btn = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav');
+        if (btn && nav) {
+          btn.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('open');
+        }
+      }
       document.querySelector('.nav-toggle')?.addEventListener('click', (e) => {
         const btn = e.currentTarget as HTMLButtonElement;
         const nav = document.querySelector('.nav');
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
         nav?.classList.toggle('open', !expanded);
+      });
+      document.querySelector('.nav')?.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) closeNav();
+      });
+      window.addEventListener('pageshow', (e) => {
+        if (e.persisted) closeNav();
       });
     </script>
   </body>
