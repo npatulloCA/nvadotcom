@@ -4,7 +4,7 @@ Static rebuild of [newvintageamps.com](https://newvintageamps.com) using [Astro]
 
 ## What’s in this repo
 
-- **Content:** Extracted from the WordPress WXR export (`newvintageamplifiers.WordPress.2026-03-13.xml`) into `src/data/pages.json` and `src/data/nav.json`. Shop, cart, checkout, and customizer pages are excluded.
+- **Content:** Extracted from the WordPress WXR export (`_support/newvintageamplifiers.WordPress.2026-03-13.xml`) into `src/data/pages.json` (metadata), `src/data/content/` (HTML per page), and `src/data/nav.json`. Shop, cart, checkout, and customizer pages are excluded.
 - **Images:** Stored in `wordpress-uploads/` and copied into `public/uploads/` at build time so the site can serve them.
 - **Site:** Astro app in `src/` with layout, nav, footer, and dynamic pages driven by the extracted data.
 
@@ -46,8 +46,12 @@ Static rebuild of [newvintageamps.com](https://newvintageamps.com) using [Astro]
 ## Project layout
 
 ```
-├── scripts/
-│   └── extract-content.py   # WordPress XML → pages.json + nav.json
+├── _support/                # Tooling and source data (not part of the built site)
+│   ├── content-data/        # Default extract output (orphan; use src/data instead)
+│   ├── newvintageamplifiers.WordPress.2026-03-13.xml
+│   └── scripts/
+│       ├── extract-content.py
+│       └── download_wordpress_images.py
 ├── src/
 │   ├── components/          # Nav, Footer
 │   ├── data/                # pages.json, nav.json (generated)
@@ -71,7 +75,7 @@ Static rebuild of [newvintageamps.com](https://newvintageamps.com) using [Astro]
 
 If you replace or update the WordPress export XML:
 
-1. Put the new XML in the repo root (or point the script at it).
-2. Run: `npm run extract` (or `python3 scripts/extract-content.py src/data`).
-3. Commit the updated `src/data/pages.json` and `src/data/nav.json`.
+1. Put the new XML in `_support/` (or point the script at it).
+2. Run: `npm run extract` (or `python3 _support/scripts/extract-content.py src/data`).
+3. Commit the updated `src/data/pages.json`, `src/data/content/`, and `src/data/nav.json`.
 4. Rebuild and deploy as usual.

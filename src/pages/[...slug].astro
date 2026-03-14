@@ -1,6 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const contentModules = import.meta.glob<string>('../data/content/**/*.html', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+// Build path -> content map (keys may vary by environment)
+const pathToContent: Record<string, string> = {};
+for (const [key, content] of Object.entries(contentModules)) {
+  const m = key.match(/content\/(.+)\.html$/);
+  if (m) {
+    const segments = m[1];
+    const p = segments === 'index' ? '/' : `/${segments}/`;
+    pathToContent[p] = content as string;
+  }
+}
+
 export async function getStaticPaths() {
   const pages = (await import('../data/pages.json')).default as Array<{ path: string }>;
   return pages
@@ -13,7 +29,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const path = '/' + (typeof slug === 'string' ? slug : (slug ?? []).join('/')) + '/';
-const pages = (await import('../data/pages.json')).default as Array<{ path: string; title: string; content: string }>;
+const pages = (await import('../data/pages.json')).default as Array<{ path: string; title: string }>;
 const page = pages.find((p) => p.path === path);
 
 if (!page) {
@@ -22,7 +38,7 @@ if (!page) {
 }
 
 const title = page.title;
-const rawContent = page.content ?? '';
+const rawContent = pathToContent[path] ?? '';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const transformContent = (html: string) =>
