@@ -1,0 +1,891 @@
+<style type="text/css">
+#content > div {
+  display: none;
+}
+div#content {
+    clear: both;
+    /* height: 275px; */
+}
+hr {
+    display: none;
+}
+nav.menu {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #454545;
+    padding: .5em 0;
+    text-align: center;
+    width: 100%;
+    -webkit-box-shadow: 0px -2px 14px -1px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px -2px 14px -1px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px -2px 14px -1px rgba(0, 0, 0, 0.45);
+    z-index: 2000;
+}
+nav.menu ul.footer {
+    display: flex !important;
+    margin-left: 0;
+}
+nav.menu ul.footer li {
+    line-height: 2.5em;
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+}
+nav.menu ul li:before {
+    display: none !important;
+}
+ul.footer a {
+    color: #fff !important;
+    font-weight: 900;
+    padding: 10px;
+    z-index: 4000;
+}
+div#optionsBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#headBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#cabinetBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#valanceBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#grillBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#cornersBox {
+    min-height: 200px;
+    padding: 0 20px;
+}
+div#visualizerheadcab {
+    left: 38px !important;
+    top: 14px !important;
+}
+div#visualizerheadvalance {
+    left: -3px !important;
+    top: 7px !important;
+    width: 405px !important;
+    height: 204px !important;
+    z-index: -1 !important;
+}
+div#visualizerheadcaboverlay {
+    left: 1px !important;
+    top: 20px !important;
+    z-index: 1 !important;
+}
+div#visualizer212cab {
+    left: 2px !important;
+    top: 0px !important;
+    z-index: -3 !important;
+}
+div#visualizer212grill {
+    left: -2px !important;
+    top: -40px !important;
+    width: 404px !important;
+    height: 300px !important;
+    z-index: -2 !important;
+}
+div#amp-image-head {
+    position: relative !important;
+    top: 0px !important;
+}
+.bd-music-social-icons {
+    z-index: -1 !important;
+}
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#valanceBlackComet").click(function(){
+        $("#valanceLabel").text("Valance: Black Comet");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBlackElephant").click(function(){
+        $("#valanceLabel").text("Valance: Black Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBlackLevant").click(function(){
+        $("#valanceLabel").text("Valance: Black Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBlackPatchwork").click(function(){
+        $("#valanceLabel").text("Valance: Black Patchwork");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBlackSnakeskin").click(function(){
+        $("#valanceLabel").text("Valance: Black Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBlackWestern").click(function(){
+        $("#valanceLabel").text("Valance: Black Western");
+    });
+});
+$(document).ready(function(){
+    $("#valanceTanDigitalCamo").click(function(){
+        $("#valanceLabel").text("Valance: Tan Digital Camo");
+    });
+});
+$(document).ready(function(){
+    $("#valanceTanLevant").click(function(){
+        $("#valanceLabel").text("Valance: Tan Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceTealLevant").click(function(){
+        $("#valanceLabel").text("Valance: Teal Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceVanillaTaurus").click(function(){
+        $("#valanceLabel").text("Valance: Vanilla Taurus");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBrownWestern").click(function(){
+        $("#valanceLabel").text("Valance: Brown Western");
+    });
+});
+$(document).ready(function(){
+    $("#valanceBurgundySnakeskin").click(function(){
+        $("#valanceLabel").text("Valance: Burgundy Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#valanceCarolinaBlue").click(function(){
+        $("#valanceLabel").text("Valance: Carolina Blue");
+    });
+});
+$(document).ready(function(){
+    $("#valanceCocoaLevant").click(function(){
+        $("#valanceLabel").text("Valance: Cocoa Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceFawn").click(function(){
+        $("#valanceLabel").text("Valance: Fawn");
+    });
+});
+$(document).ready(function(){
+    $("#valanceGreenLevant").click(function(){
+        $("#valanceLabel").text("Valance: Green Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceGrayDigitalCamo").click(function(){
+        $("#valanceLabel").text("Valance: Gray Digital Camo");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSmoothBlonde").click(function(){
+        $("#valanceLabel").text("Valance: Smooth Blonde");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSmoothBrown").click(function(){
+        $("#valanceLabel").text("Valance: Smooth Brown");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSnakeskin").click(function(){
+        $("#valanceLabel").text("Valance: Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#valanceWhiteElephant").click(function(){
+        $("#valanceLabel").text("Valance: White Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceWhiteLevant").click(function(){
+        $("#valanceLabel").text("Valance: White Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceWineRed").click(function(){
+        $("#valanceLabel").text("Valance: Wine Red");
+    });
+});
+$(document).ready(function(){
+    $("#valanceIvoryLevant").click(function(){
+        $("#valanceLabel").text("Valance: Ivory Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceNavyLevant").click(function(){
+        $("#valanceLabel").text("Valance: Navy Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valancePlumLevant").click(function(){
+        $("#valanceLabel").text("Valance: Plum Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSilverLevant").click(function(){
+        $("#valanceLabel").text("Valance: Silver Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSmoothBlack").click(function(){
+        $("#valanceLabel").text("Valance: Smooth Black");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRoughRed").click(function(){
+        $("#valanceLabel").text("Valance: Rough Red");
+    });
+});
+$(document).ready(function(){
+    $("#valanceSeafoamGreen").click(function(){
+        $("#valanceLabel").text("Valance: Seafoam Green");
+    });
+});
+$(document).ready(function(){
+    $("#valancePurpleElephant").click(function(){
+        $("#valanceLabel").text("Valance: Purple Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#valancePurpleLevant").click(function(){
+        $("#valanceLabel").text("Valance: Purple Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRedElephant").click(function(){
+        $("#valanceLabel").text("Valance: Red Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRedLevant").click(function(){
+        $("#valanceLabel").text("Valance: Red Levant");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRoughBlack").click(function(){
+        $("#valanceLabel").text("Valance: Rough Black");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRoughBlonde").click(function(){
+        $("#valanceLabel").text("Valance: Rough Blonde");
+    });
+});
+$(document).ready(function(){
+    $("#valanceRoughBrown").click(function(){
+        $("#valanceLabel").text("Valance: Rough Brown");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackComet").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Comet");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackElephant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackPatchwork").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Patchwork");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackSnakeskin").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBlackWestern").click(function(){
+        $("#cabinetLabel").text("Cabinet: Black Western");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetTanDigitalCamo").click(function(){
+        $("#cabinetLabel").text("Cabinet: Tan Digital Camo");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetTanLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Tan Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetTealLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Teal Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetVanillaTaurus").click(function(){
+        $("#cabinetLabel").text("Cabinet: Vanilla Taurus");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBrownWestern").click(function(){
+        $("#cabinetLabel").text("Cabinet: Brown Western");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetBurgundySnakeskin").click(function(){
+        $("#cabinetLabel").text("Cabinet: Burgundy Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetCarolinaBlue").click(function(){
+        $("#cabinetLabel").text("Cabinet: Carolina Blue");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetCocoaLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Cocoa Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetFawn").click(function(){
+        $("#cabinetLabel").text("Cabinet: Fawn");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetGreenLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Green Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetGrayDigitalCamo").click(function(){
+        $("#cabinetLabel").text("Cabinet: Gray Digital Camo");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSmoothBlonde").click(function(){
+        $("#cabinetLabel").text("Cabinet: Smooth Blonde");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSmoothBrown").click(function(){
+        $("#cabinetLabel").text("Cabinet: Smooth Brown");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSnakeskin").click(function(){
+        $("#cabinetLabel").text("Cabinet: Snakeskin");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetWhiteElephant").click(function(){
+        $("#cabinetLabel").text("Cabinet: White Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetWhiteLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: White Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetWineRed").click(function(){
+        $("#cabinetLabel").text("Cabinet: Wine Red");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetIvoryLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Ivory Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetNavyLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Navy Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetPlumLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Plum Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSilverLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Silver Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSmoothBlack").click(function(){
+        $("#cabinetLabel").text("Cabinet: Smooth Black");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRoughRed").click(function(){
+        $("#cabinetLabel").text("Cabinet: Rough Red");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetSeafoamGreen").click(function(){
+        $("#cabinetLabel").text("Cabinet: Seafoam Green");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetPurpleElephant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Purple Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetPurpleLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Purple Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRedElephant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Red Elephant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRedLevant").click(function(){
+        $("#cabinetLabel").text("Cabinet: Red Levant");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRoughBlack").click(function(){
+        $("#cabinetLabel").text("Cabinet: Rough Black");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRoughBlonde").click(function(){
+        $("#cabinetLabel").text("Cabinet: Rough Blonde");
+    });
+});
+$(document).ready(function(){
+    $("#cabinetRoughBrown").click(function(){
+        $("#cabinetLabel").text("Cabinet: Rough Brown");
+    });
+});
+$(document).ready(function(){
+    $("#grillAmericanBlack").click(function(){
+        $("#grillLabel").text("Grill: American Black");
+    });
+});
+$(document).ready(function(){
+    $("#grillBeigeBrown").click(function(){
+        $("#grillLabel").text("Grill: Beige Brown");
+    });
+});
+$(document).ready(function(){
+    $("#grillBeigeBrownGold").click(function(){
+        $("#grillLabel").text("Grill: Beige Brown Gold");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackBlueWeave").click(function(){
+        $("#grillLabel").text("Grill: Black and Blue Weave");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackMatrix").click(function(){
+        $("#grillLabel").text("Grill: Black Matrix");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackTan").click(function(){
+        $("#grillLabel").text("Grill: Black and Tan");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackTanGold").click(function(){
+        $("#grillLabel").text("Grill: Black Tan Gold");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackWhiteSilver").click(function(){
+        $("#grillLabel").text("Grill: Black White Silver");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlueWhiteSilver").click(function(){
+        $("#grillLabel").text("Grill: Blue White Silver");
+    });
+});
+$(document).ready(function(){
+    $("#grillOxbloodGold").click(function(){
+        $("#grillLabel").text("Grill: Oxblood Gold");
+    });
+});
+$(document).ready(function(){
+    $("#grillWhiteCane").click(function(){
+        $("#grillLabel").text("Grill: White Cane");
+    });
+});
+$(document).ready(function(){
+    $("#grillBlackWeave").click(function(){
+        $("#grillLabel").text("Grill: Black Weave");
+    });
+});
+$(document).ready(function(){
+    $("#grillSilverMatrix").click(function(){
+        $("#grillLabel").text("Grill: Silver Matrix");
+    });
+});
+$(document).ready(function(){
+    $("#grillTurquoiseWhiteSilver").click(function(){
+        $("#grillLabel").text("Grill: Turquoise White Silver");
+    });
+});
+$(document).ready(function(){
+    $("#cornersBlack").click(function(){
+        $("#cornersLabel").text("Corners: Black");
+    });
+});
+$(document).ready(function(){
+    $("#cornersSilver").click(function(){
+        $("#cornersLabel").text("Corners: Silver");
+    });
+});
+</script>
+
+<h1>Who likes free stuff?</h1>
+<p>
+We are teaming up with Gear Talk and Gear Guts to give away a custom 2x12 guitar cabinet! This giveaway is pretty simple - design <strong>YOUR</strong> custom cabinet in the Customizer below, take a screen shot of the cabinet, and share it on your social media pages (Twitter, Instagram, Facebook) with the hashtag #CustomCabGiveaway and tag the three of us in the post. That's it. There are no limits on the number of entries you can submit as long as you abide by the previously mentioned rules. One lucky person will win the cabinet that they designed and we'll give it to them. How rad is that? Very.
+</p>
+<p>
+You can find us on <a href="http://www.facebook.com/newvintageamps">Facebook</a>, <a href="http://www.twitter.com/newvintageamps">Twitter</a>, and <a href="http://www.instagram.com/newvintageamps">Instagram</a> by searching "New Vintage Amps."
+</p>
+
+<h4>
+RULES
+</h4>
+<p>
+<ol>
+ <li>Follow New Vintage Amps, Gear Talk, and Gear Guts</li>
+ <li>Design your cabinet using the Customizer and options below.</li>
+ <li>Take a screen shot of the cabinet</li>
+ <li>Share it on your social media pages (Twitter, Instagram, Facebook) with the hashtag #CustomCabGiveaway</li>
+ <li>Tag New Vintage Amps, Gear Talk, and Gear Guts</li>
+</ol>
+
+<h4>
+FINE PRINT
+</h4>
+<p>
+The winner will be randomly selected on February 22, 2017. We will notify the winner via the social media outlet upon which their winning submission was posted, so PLEASE follow us on Twitter and Instagram (@newvintageamps) and "like" us on Facebook. We will cover shipping to the lower 48 States. All other shipping will be sorted out between us and the winner. The winner will be contacted about speaker selection for the cabinet.
+
+<div id="customizerGraphic0">
+<div id="amp-image-head">
+<div id="visualizerheadcaboverlay"><img src="http://www.newvintageamps.com/_img/212combo/212BBcabTOPblack.png" name="corners" scale="0"></div>
+<div id="visualizerheadvalance"><img src="http://www.newvintageamps.com/_img/212combo/valence/212comboROUGHBLACK.png" name="valance" scale="0"></div>
+<div id="visualizer212cab"><img src="http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBLACK.png" name="cabinet" scale="0"></div>
+<div id="visualizer212grill"><img src="http://www.newvintageamps.com/_img/212combo/grill/212comboSILVERMATRIX.png" name="grill" scale="0"></div>
+</div>
+</div>
+<div id="recap0">
+<h1>Your Rig  Colors</h1>
+<div id="visualizerheadcabcablabel0"><p id="cabinetLabel">Cabinet: Rough Black</p></div>
+<div id="visualizerheadcabvalancelabel0"><p id="valanceLabel">Valance: Rough Black</p></div>
+<div id="visualizerheadcabgrilllabel0"><p id="grillLabel">Grill: Black Matrix</p></div>
+<div id="visualizerheadcabcornerslabel0"><p id="cornersLabel">Corners: Black</p></div>
+</div>
+<div id="content">
+  <div id="headBox"><h3>Head Color</h3><table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKCOMET.png',1)" id="headBlackComet"><img src="http://www.newvintageamps.com/_img/thumbnails/blackcomet.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKLEVANT.png',1)" id="headBlackLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/blacklevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKPATCHWORK.png',1)" id="headBlackPatchwork"><img src="http://www.newvintageamps.com/_img/thumbnails/blackpatchwork.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKSNAKESKIN.png',1)" id="headBlackSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/blacksnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKWESTERN.png',1)" id="headBlackWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/blackwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboTANDIGITALCAMO.png',1)" id="headTanDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/tandigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboTANLEVANT.png',1)" id="headTanLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/tanlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboTEALLEVANT.png',1)" id="headTealLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/teallevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboVANILLATAURUS.png',1)" id="headVanillaTaurus"><img src="http://www.newvintageamps.com/_img/thumbnails/vanillataurus.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBROWNWESTERN.png',1)" id="headBrownWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/brownwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboBURGUNDYSNAKESKIN.png',1)" id="headBurgundySnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/burgundysnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboCAROLINABLUE.png',1)" id="headCarolinaBlue"><img src="http://www.newvintageamps.com/_img/thumbnails/carolinablue.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboCOCOALEVANT.png',1)" id="headCocoaLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/cocoalevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboFAWN.png',1)" id="headFawn"><img src="http://www.newvintageamps.com/_img/thumbnails/fawn.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboGREENLEVANT.png',1)" id="headGreenLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/greenlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboGREYDIGITALCAMO.png',1)" id="headGrayDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/greydigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBLONDE.png',1)" id="headSmoothBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBROWN.png',1)" id="headSmoothBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothbrown.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboWHITELEVANT.png',1)" id="headWhiteLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/whitelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboWINETAURUS.png',1)" id="headWineRed"><img src="http://www.newvintageamps.com/_img/thumbnails/winered.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboIVORYLEVANT.png',1)" id="headIvoryLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/ivorylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboNAVYLEVANT.png',1)" id="headNavyLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/navylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboPLUMLEVANT.png',1)" id="headPlumLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/plumlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSILVERLEVANT.png',1)" id="headSilverLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/silverlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBLACK.png',1)" id="headSmoothBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHRED.png',1)" id="headRoughRed"><img src="http://www.newvintageamps.com/_img/thumbnails/roughred.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSEAFOAMGREEN.png',1)" id="headSeafoamGreen"><img src="http://www.newvintageamps.com/_img/thumbnails/seafoamgreen.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboPURPLELEVANT.png',1)" id="headPurpleLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/purplelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboREDLEVANT.png',1)" id="headRedLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/redlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBLACK.png',1)" id="headRoughBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBLONDE.png',1)" id="headRoughBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBROWN.png',1)" id="headRoughBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/roughbrown.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('head','','http://www.newvintageamps.com/_img/212combo/cab/212comboSNAKESKIN.png',1)" id="headSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/snakeskin.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<hr>             
+  </div>
+  <div id="valanceBox"><h3>Valance Color</h3>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBLACKCOMET.png',1)" id="valanceBlackComet"> <img src="http://www.newvintageamps.com/_img/thumbnails/blackcomet.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBLACKLEVANT.png',1)" id="valanceBlackLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/blacklevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBLACKPATCHWORK.png',1)" id="valanceBlackPatchwork"><img src="http://www.newvintageamps.com/_img/thumbnails/blackpatchwork.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBLACKSNAKESKIN.png',1)" id="valanceBlackSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/blacksnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBLACKWESTERN.png',1)" id="valanceBlackWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/blackwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboTANDIGITALCAMO.png',1)" id="valanceTanDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/tandigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboTANLEVANT.png',1)" id="valanceTanLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/tanlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboTEALLEVANT.png',1)" id="valanceTealLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/teallevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboVANILLATAURUS.png',1)" id="valanceVanillaTaurus"><img src="http://www.newvintageamps.com/_img/thumbnails/vanillataurus.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBROWNWESTERN.png',1)" id="valanceBrownWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/brownwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboBURGUNDYSNAKESKIN.png',1)" id="valanceBurgundySnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/burgundysnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboCAROLINABLUE.png',1)" id="valanceCarolinaBlue"><img src="http://www.newvintageamps.com/_img/thumbnails/carolinablue.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboCOCOALEVANT.png',1)" id="valanceCocoaLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/cocoalevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboFAWN.png',1)" id="valanceFawn"><img src="http://www.newvintageamps.com/_img/thumbnails/fawn.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboGREENLEVANT.png',1)" id="valanceGreenLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/greenlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboGREYDIGITALCAMO.png',1)" id="valanceGrayDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/greydigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSMOOTHBLONDE.png',1)" id="valanceSmoothBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSMOOTHBROWN.png',1)" id="valanceSmoothBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothbrown.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboWHITELEVANT.png',1)" id="valanceWhiteLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/whitelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboWINETAURUS.png',1)" id="valanceWineRed"><img src="http://www.newvintageamps.com/_img/thumbnails/winered.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboIVORYLEVANT.png',1)" id="valanceIvoryLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/ivorylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboNAVYLEVANT.png',1)" id="valanceNavyLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/navylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboPLUMLEVANT.png',1)" id="valancePlumLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/plumlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSILVERLEVANT.png',1)" id="valanceSilverLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/silverlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSMOOTHBLACK.png',1)" id="valanceSmoothBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboROUGHRED.png',1)" id="valanceRoughRed"><img src="http://www.newvintageamps.com/_img/thumbnails/roughred.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSEAFOAMGREEN.png',1)" id="valanceSeafoamGreen"><img src="http://www.newvintageamps.com/_img/thumbnails/seafoamgreen.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboPURPLELEVANT.png',1)" id="valancePurpleLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/purplelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboREDLEVANT.png',1)" id="valanceRedLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/redlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboROUGHBLACK.png',1)" id="valanceRoughBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboROUGHBLONDE.png',1)" id="valanceRoughBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboROUGHBROWN.png',1)" id="valanceRoughBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/roughbrown.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('valance','','http://www.newvintageamps.com/_img/212combo/valence/212comboSNAKESKIN.png',1)" id="valanceSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/snakeskin.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<hr>             
+    </div>
+  <div id="cabinetBox"><h3>Cabinet Color</h3><table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKCOMET.png',1)" id="cabinetBlackComet"><img src="http://www.newvintageamps.com/_img/thumbnails/blackcomet.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKLEVANT.png',1)" id="cabinetBlackLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/blacklevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKPATCHWORK.png',1)" id="cabinetBlackPatchwork"><img src="http://www.newvintageamps.com/_img/thumbnails/blackpatchwork.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKSNAKESKIN.png',1)" id="cabinetBlackSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/blacksnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBLACKWESTERN.png',1)" id="cabinetBlackWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/blackwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboTANDIGITALCAMO.png',1)" id="cabinetTanDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/tandigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboTANLEVANT.png',1)" id="cabinetTanLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/tanlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboTEALLEVANT.png',1)" id="cabinetTealLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/teallevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboVANILLATAURUS.png',1)" id="cabinetVanillaTaurus"><img src="http://www.newvintageamps.com/_img/thumbnails/vanillataurus.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBROWNWESTERN.png',1)" id="cabinetBrownWestern"><img src="http://www.newvintageamps.com/_img/thumbnails/brownwestern.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboBURGUNDYSNAKESKIN.png',1)" id="cabinetBurgundySnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/burgundysnakeskin.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboCAROLINABLUE.png',1)" id="cabinetCarolinaBlue"><img src="http://www.newvintageamps.com/_img/thumbnails/carolinablue.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboCOCOALEVANT.png',1)" id="cabinetCocoaLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/cocoalevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboFAWN.png',1)" id="cabinetFawn"><img src="http://www.newvintageamps.com/_img/thumbnails/fawn.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboGREENLEVANT.png',1)" id="cabinetGreenLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/greenlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboGREYDIGITALCAMO.png',1)" id="cabinetGrayDigitalCamo"><img src="http://www.newvintageamps.com/_img/thumbnails/greydigitalcamo.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBLONDE.png',1)" id="cabinetSmoothBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBROWN.png',1)" id="cabinetSmoothBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothbrown.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboWHITELEVANT.png',1)" id="cabinetWhiteLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/whitelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboWINETAURUS.png',1)" id="cabinetWineRed"><img src="http://www.newvintageamps.com/_img/thumbnails/winered.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboIVORYLEVANT.png',1)" id="cabinetIvoryLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/ivorylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboNAVYLEVANT.png',1)" id="cabinetNavyLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/navylevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboPLUMLEVANT.png',1)" id="cabinetPlumLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/plumlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSILVERLEVANT.png',1)" id="cabinetSilverLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/silverlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSMOOTHBLACK.png',1)" id="cabinetSmoothBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/smoothblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHRED.png',1)" id="cabinetRoughRed"><img src="http://www.newvintageamps.com/_img/thumbnails/roughred.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSEAFOAMGREEN.png',1)" id="cabinetSeafoamGreen"><img src="http://www.newvintageamps.com/_img/thumbnails/seafoamgreen.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboPURPLELEVANT.png',1)" id="cabinetPurpleLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/purplelevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboREDLEVANT.png',1)" id="cabinetRedLevant"><img src="http://www.newvintageamps.com/_img/thumbnails/redlevant.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBLACK.png',1)" id="cabinetRoughBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBLONDE.png',1)" id="cabinetRoughBlonde"><img src="http://www.newvintageamps.com/_img/thumbnails/roughblonde.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboROUGHBROWN.png',1)" id="cabinetRoughBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/roughbrown.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('cabinet','','http://www.newvintageamps.com/_img/212combo/cab/212comboSNAKESKIN.png',1)" id="cabinetSnakeskin"><img src="http://www.newvintageamps.com/_img/thumbnails/snakeskin.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<hr>             
+  </div>
+  <div id="grillBox"><h3>Grill Cloth Color</h3><table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="5">
+<tbody><tr>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboAMERICANBLACK.png',1)" id="grillAmericanBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/americanblack.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBEIGEBROWN.png',1)" id="grillBeigeBrown"><img src="http://www.newvintageamps.com/_img/thumbnails/beigebrown.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBEIGEBROWNGOLD.png',1)" id="grillBeigeBrownGold"><img src="http://www.newvintageamps.com/_img/thumbnails/beigebrowngold.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKBLUEWEAVE.png',1)" id="grillBlackBlueWeave"><img src="http://www.newvintageamps.com/_img/thumbnails/blackblueweave.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKMATRIX.png',1)" id="grillBlackMatrix"><img src="http://www.newvintageamps.com/_img/thumbnails/blackmatrix.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKTAN.png',1)" id="grillBlackTan"><img src="http://www.newvintageamps.com/_img/thumbnails/blacktan.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKTANGOLD.png',1)" id="grillBlackTanGold"><img src="http://www.newvintageamps.com/_img/thumbnails/blacktangold.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<table>
+<tbody><tr>
+<td>
+<table class="visualizer" cellspacing="10">
+<tbody><tr>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKWHITESILVER.png',1)" id="grillBlackWhiteSilver"><img src="http://www.newvintageamps.com/_img/thumbnails/blackwhitesilver.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLUEWHITESILVER.png',1)" id="grillBlueWhiteSilver"><img src="http://www.newvintageamps.com/_img/thumbnails/bluewhitesilver.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboWHITECANE.png',1)" id="grillWhiteCane"><img src="http://www.newvintageamps.com/_img/thumbnails/whitecane.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboBLACKWEAVE.png',1)" id="grillBlackWeave"><img src="http://www.newvintageamps.com/_img/thumbnails/blackweave.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboSILVERMATRIX.png',1)" id="grillSilverMatrix"><img src="http://www.newvintageamps.com/_img/thumbnails/silvermatrix.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboTURQUOISEWHITESILVER.png',1)" id="grillTurquoiseWhiteSilver"><img src="http://www.newvintageamps.com/_img/thumbnails/turquoisewhitesilver.png" scale="0"></a></td>
+<td><a onclick="MM_swapImage('grill','','http://www.newvintageamps.com/_img/212combo/grill/212comboOXBLOODGOLD.png',1)" id="grillOxbloodGold"><img src="http://www.newvintageamps.com/_img/thumbnails/oxbloodgold.png" scale="0"></a></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+<hr>             
+  </div>
+<table>
+<tbody>
+<tr>
+<td>
+  <div id="cornersBox"><h3>Corner Hardware Color</h3><table>
+<table class="visualizer" cellspacing="10">
+<tbody>
+<tr>
+<td>
+  <a onclick="MM_swapImage('corners','','http://www.newvintageamps.com/_img/212combo/212BBcabTOPblack.png',1)" id="cornersBlack"><img src="http://www.newvintageamps.com/_img/thumbnails/black.png" scale="0"></a></td>
+<td>
+  <a onclick="MM_swapImage('corners','','http://www.newvintageamps.com/_img/212combo/212BBcabTOPsilver.png',1)" id="cornersSilver"><img src="http://www.newvintageamps.com/_img/thumbnails/silver.png" scale="0"></a>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<nav class="menu">
+    <ul class="footer">
+        <li><a href="#cabinetBox" onclick="showhide('cabinetBox');">Cabinet</a></li>
+        <li><a href="#valanceBox" onclick="showhide('valanceBox');">Valance</a></li>
+        <li><a href="#grillBox" onclick="showhide('grillBox');">Grill</a></li>
+        <li><a href="#cornersBox" onclick="showhide('cornersBox');">Corners</a></li>
+    </ul>
+</nav>

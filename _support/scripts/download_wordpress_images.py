@@ -105,7 +105,8 @@ def download_image(url, local_path, skip_existing=True):
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    xml_path = os.path.join(script_dir, "newvintageamplifiers.WordPress.2026-03-13.xml")
+    repo_root = os.path.dirname(os.path.dirname(script_dir))  # project root (script lives in _support/scripts/)
+    xml_path = os.path.join(repo_root, "_support", "newvintageamplifiers.WordPress.2026-03-13.xml")
     if not os.path.isfile(xml_path):
         print(f"XML not found: {xml_path}")
         sys.exit(1)
@@ -114,7 +115,7 @@ def main():
     urls = extract_urls_from_xml(xml_path)
     print(f"Found {len(urls)} unique image URL(s).")
 
-    base_dir = os.path.join(script_dir, OUTPUT_DIR)
+    base_dir = os.path.join(repo_root, OUTPUT_DIR)
     os.makedirs(base_dir, exist_ok=True)
     ok = 0
     for i, url in enumerate(urls, 1):

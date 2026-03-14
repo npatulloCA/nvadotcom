@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
 Extract content from WordPress WXR XML for the static site.
-Outputs pages.json (include list + content) and nav.json (nav tree).
+Outputs:
+  - pages.json: metadata only (id, title, slug, parentId, path)
+  - content/: one HTML file per page (path mirrors URL structure)
+  - nav.json: nav tree
 Excludes shop, cart, checkout, my-account, and customizer pages.
 """
 import json
@@ -72,9 +75,9 @@ def get_meta(item, key: str) -> str:
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    repo_root = os.path.dirname(script_dir)
-    xml_path = os.path.join(repo_root, "newvintageamplifiers.WordPress.2026-03-13.xml")
-    out_dir = os.path.join(repo_root, "content-data")
+    repo_root = os.path.dirname(os.path.dirname(script_dir))  # project root (script lives in _support/scripts/)
+    xml_path = os.path.join(repo_root, "_support", "newvintageamplifiers.WordPress.2026-03-13.xml")
+    out_dir = os.path.join(repo_root, "_support", "content-data")
     if len(sys.argv) > 1:
         out_dir = sys.argv[1]
 
@@ -182,11 +185,31 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     pages_list = list(pages_by_id.values())
     pages_list.sort(key=lambda x: (x["path"],))
+
+    # pages.json: metadata only (no content), for easy reading and navigation
+    meta_list = [
+        {"id": p["id"], "title": p["title"], "slug": p["slug"], "parentId": p["parentId"], "path": p["path"]}
+        for p in pages_list
+    ]
     with open(os.path.join(out_dir, "pages.json"), "w", encoding="utf-8") as f:
-        json.dump(pages_list, f, indent=2, ensure_ascii=False)
+        json.dump(meta_list, f, indent=2, ensure_ascii=False)
+
+    # content/: one HTML file per page, path mirrors URL structure
+    content_dir = os.path.join(out_dir, "content")
+    os.makedirs(content_dir, exist_ok=True)
+    for p in pages_list:
+        path_slug = p["path"].strip("/") or "index"
+        rel = path_slug + ".html"
+        file_path = os.path.join(content_dir, rel)
+        parent = os.path.dirname(file_path)
+        if parent != content_dir:
+            os.makedirs(parent, exist_ok=True)
+        with open(file_path, "w", encoding="utf-8") as f:
+            f.write(p["content"] or "")
+
     with open(os.path.join(out_dir, "nav.json"), "w", encoding="utf-8") as f:
         json.dump(nav_tree, f, indent=2, ensure_ascii=False)
-    print(f"Wrote {len(pages_list)} pages and nav tree to {out_dir}/")
+    print(f"Wrote {len(pages_list)} pages (metadata + content files) and nav tree to {out_dir}/")
 
 
 if __name__ == "__main__":
