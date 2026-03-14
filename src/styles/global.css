@@ -208,7 +208,6 @@ img {
     pointer-events: none;
   }
   .nav.open {
-    border-bottom: 1px solid #333;
     max-height: calc(100vh - var(--header-height, 4rem));
     max-height: calc(100dvh - var(--header-height, 4rem));
     overflow-y: auto;

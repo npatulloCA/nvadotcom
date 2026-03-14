@@ -74,9 +74,7 @@ const bgImageUrl = `url('${base ? base + '/' : '/'}nva-background.png')`;
       document.querySelector('.nav')?.addEventListener('click', (e) => {
         if ((e.target as HTMLElement).closest('a')) closeNav();
       });
-      window.addEventListener('pageshow', (e) => {
-        if (e.persisted) closeNav();
-      });
+      window.addEventListener('pageshow', () => closeNav());
     </script>
   </body>
 </html>
