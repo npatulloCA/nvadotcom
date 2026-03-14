@@ -1,16 +1,16 @@
-/* New Vintage Amplifiers – global styles */
+/* New Vintage Amplifiers – global styles (matches original newvintageamps.com) */
 :root {
-  --color-bg: #1a1a1a;
+  --color-bg: #181818;
   --color-surface: #252525;
-  --color-text: #e8e8e8;
-  --color-text-muted: #a0a0a0;
-  --color-accent: #c9a227;
-  --color-link: #c62828;
-  --color-link-hover: #ef5350;
-  /* Typography */
-  --font-heading: 'Ubuntu Condensed', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --color-text: #cccccc;
+  --color-text-muted: #999999;
+  --color-accent: #ff0000;
+  --color-link: #ff0000;
+  --color-link-hover: #b30000;
+  /* Typography – Ubuntu Condensed with condensed fallbacks */
+  --font-heading: 'Ubuntu Condensed', 'Oswald', 'Archivo Narrow', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --max-width: 1164px;
+  --max-width: 960px;
   --header-height: 4rem;
   --space: 1.5rem;
 }
@@ -22,7 +22,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 13px;
   scroll-behavior: smooth;
 }
 
@@ -31,7 +31,8 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.8;
+  text-shadow: 1px 1px #0d0d0d;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -56,7 +57,6 @@ a {
 }
 a:hover {
   color: var(--color-link-hover);
-  text-decoration: underline;
 }
 
 img {
@@ -65,19 +65,22 @@ img {
   display: block;
 }
 
-/* Header */
+/* Header – single background image (URL set in Layout for base path) */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--color-surface);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background-color: #181818;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  border-bottom: none;
 }
 
 .header-inner {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0.75rem var(--space);
+  padding: 1.25rem var(--space);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,11 +91,13 @@ img {
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-text);
+  color: white;
   text-decoration: none;
+  text-transform: uppercase;
 }
 .logo:hover {
-  color: var(--color-accent);
+  color: white;
+  opacity: 0.9;
   text-decoration: none;
 }
 
@@ -107,7 +112,7 @@ img {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--color-text);
+  color: white;
 }
 .nav-toggle span {
   display: block;
@@ -123,6 +128,7 @@ img {
   padding: 0;
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 0.5rem;
 }
 
@@ -132,14 +138,19 @@ img {
 .nav-item > a {
   display: block;
   padding: 0.5rem 0.75rem;
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
   font-weight: 500;
-}
-.nav-item > a:hover,
-.nav-item > a.active {
-  color: var(--color-text);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
+}
+.nav-item > a:hover {
+  color: white;
+}
+.nav-item > a.active {
+  color: #ff0000;
 }
 
 .nav-sublist {
@@ -150,8 +161,8 @@ img {
   list-style: none;
   margin: 0;
   padding: 0.5rem 0;
-  background: var(--color-surface);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: var(--color-bg);
+  border: 1px solid #333;
   border-radius: 4px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   opacity: 0;
@@ -168,9 +179,11 @@ img {
   padding: 0.5rem 1rem;
   color: var(--color-text-muted);
   font-size: 0.9rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
 }
 .nav-subitem a:hover {
-  color: var(--color-text);
+  color: var(--color-accent);
   background: rgba(255,255,255,0.05);
 }
 
@@ -183,8 +196,8 @@ img {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-surface);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: var(--color-bg);
+    border-bottom: 1px solid #333;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s;
@@ -222,10 +235,10 @@ img {
   position: relative;
   max-width: var(--max-width);
   margin: 0 auto var(--space);
-  border-radius: 4px;
+  border-radius: 0;
   overflow: hidden;
   background: #0a0a0a;
-  aspect-ratio: 1164 / 520;
+  aspect-ratio: 960 / 480;
   min-height: 320px;
 }
 
@@ -342,40 +355,89 @@ img {
 /* Page content (from WordPress HTML) */
 .page-content {
   font-size: 1rem;
+  line-height: 1.5;
   max-width: 760px;
   margin: 0 auto;
 }
-.page-content :global(h1),
-.page-content :global(h2),
-.page-content :global(h3),
-.page-content :global(h4) {
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4 {
   font-family: var(--font-heading);
+  text-transform: uppercase;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
-  color: var(--color-text);
+  color: white;
 }
-.page-content :global(h1) { font-size: 1.75rem; }
-.page-content :global(h2) { font-size: 1.5rem; }
-.page-content :global(h3),
-.page-content :global(h4) { font-size: 1.25rem; }
-.page-content :global(p) {
+.page-content h1 { font-size: 1.75rem; }
+.page-content h2 { font-size: 1.5rem; }
+.page-content h3,
+.page-content h4 { font-size: 1.25rem; }
+.page-content p {
   margin: 0 0 1em;
 }
-.page-content :global(ul),
-.page-content :global(ol) {
+.page-content ul,
+.page-content ol {
   margin: 0 0 1em;
   padding-left: 1.5em;
 }
-.page-content :global(img) {
+.page-content img {
   margin: 1em auto;
   border-radius: 4px;
 }
 
-/* Footer */
+/* Page content – wide layout (e.g. guitar-amps grid) */
+.page-content--wide {
+  max-width: 960px;
+}
+
+/* Amp grid (two-column product blocks) */
+.page-content .amp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 100%;
+}
+
+.page-content .amp-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-surface);
+  border-radius: 8px;
+  padding: 1.5rem;
+  break-inside: avoid;
+  text-align: center;
+}
+
+.page-content .amp-block h4 {
+  margin-top: 0;
+}
+
+.page-content .amp-block p {
+  margin-bottom: 0;
+}
+
+.page-content .amp-block a {
+  display: inline-block;
+}
+
+.page-content .amp-block img {
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .page-content .amp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer – matches page background */
 .site-footer {
   margin-top: auto;
-  background: var(--color-surface);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  background-color: var(--color-bg);
+  background-image: none;
+  border-top: none;
   padding: 2rem var(--space);
 }
 
@@ -388,19 +450,23 @@ img {
 .footer-tagline {
   font-family: var(--font-heading);
   font-size: 1rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0 0 0.5rem;
+  text-transform: uppercase;
 }
 
 .footer-contact {
   margin: 0 0 0.5rem;
 }
 .footer-contact a {
-  color: var(--color-link);
+  color: #ff0000;
+}
+.footer-contact a:hover {
+  color: #b30000;
 }
 
 .footer-copy {
   font-size: 0.85rem;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
 }

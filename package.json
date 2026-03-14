@@ -11,6 +11,6 @@
     "extract": "python3 _support/scripts/extract-content.py src/data"
   },
   "dependencies": {
-    "astro": "^4.16.0"
+    "astro": "^6.0.4"
   }
 }
