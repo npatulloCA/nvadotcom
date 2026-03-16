@@ -28,6 +28,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -70,11 +71,13 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  overflow: visible;
   background-color: #181818;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   border-bottom: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
 }
 
 .header-inner {
@@ -192,24 +195,30 @@ img {
     display: flex;
   }
   .nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: var(--header-height, 4rem);
     left: 0;
     right: 0;
+    bottom: 0;
+    z-index: 45;
     background: var(--color-bg);
-    border-bottom: 1px solid #333;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s;
+    pointer-events: none;
   }
   .nav.open {
-    max-height: 80vh;
+    max-height: calc(100vh - var(--header-height, 4rem));
+    max-height: calc(100dvh - var(--header-height, 4rem));
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto;
   }
   .nav-list {
     flex-direction: column;
     align-items: stretch;
     padding: var(--space);
+    padding-bottom: calc(var(--space) + env(safe-area-inset-bottom, 0px));
     gap: 0;
   }
   .nav-item {
@@ -230,12 +239,15 @@ img {
   }
 }
 
-/* Hero carousel – responsive by width % and aspect-ratio, no fixed pixel height */
+/* Hero carousel – full-bleed, images fill space (cover) to avoid black bars */
 .hero-carousel {
   position: relative;
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto var(--space);
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+  margin-top: calc(-1 * var(--space));
+  margin-bottom: var(--space);
   border-radius: 0;
   overflow: hidden;
   background: #0a0a0a;
@@ -287,7 +299,7 @@ img {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   display: block;
 }
