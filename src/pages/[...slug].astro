@@ -58,7 +58,8 @@ const isWidePage =
   path.startsWith('/guitar-amps/') ||
   path.startsWith('/bass-amps/') ||
   path.startsWith('/speaker-cabinets/') ||
-  path.startsWith('/about-nva/legacymodels/');
+  path.startsWith('/about-nva/legacymodels/') ||
+  path === '/artists/';
 ---
 <Layout title={title}>
   <article class:list={['page-content', { 'page-content--wide': isWidePage }]}>

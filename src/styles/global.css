@@ -529,6 +529,45 @@ img {
   }
 }
 
+/* Artists page – 3-column grid for easier scrolling */
+.page-content .artists-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem 2rem;
+  margin-top: 1rem;
+}
+.page-content .artist-card {
+  background: var(--color-surface);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  break-inside: avoid;
+}
+.page-content .artist-card h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-size: 1.1rem;
+}
+.page-content .artist-card p {
+  margin: 0;
+}
+.page-content .artist-card ul {
+  margin: 0.25em 0 0.5em;
+  padding-left: 1.25em;
+}
+.page-content .artist-card a {
+  font-size: 0.9rem;
+}
+@media (max-width: 900px) {
+  .page-content .artists-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .page-content .artists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Detail page two-column layouts */
 .page-content .detail-two-col {
   display: grid;
