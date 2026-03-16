@@ -190,6 +190,48 @@ img {
   background: rgba(255,255,255,0.05);
 }
 
+.nav-subitem.has-children {
+  position: relative;
+}
+.nav-sublist-deep {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0 0.5rem;
+  min-width: 10rem;
+}
+.nav-subitem:hover .nav-sublist-deep {
+  opacity: 1;
+  visibility: visible;
+}
+@media (min-width: 769px) {
+  .nav-sublist-deep {
+    position: absolute;
+    left: 100%;
+    top: -0.5rem;
+    padding: 0.5rem 0;
+    background: var(--color-bg);
+    border: 1px solid #333;
+    border-radius: 4px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  .nav-subitem.has-children > a::after {
+    content: '';
+    display: inline-block;
+    margin-left: 0.25rem;
+    border: 4px solid transparent;
+    border-left-color: currentColor;
+    border-right: none;
+    vertical-align: 0.15em;
+  }
+}
+.nav-sublist-deep .nav-subitem a {
+  padding: 0.4rem 1rem 0.4rem 1.25rem;
+  font-size: 0.85rem;
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: flex;
@@ -236,6 +278,17 @@ img {
     padding-left: 1rem;
     margin-top: 0.25rem;
     margin-bottom: 0.5rem;
+  }
+  .nav-sublist-deep {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    padding-left: 1rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .nav-subitem.has-children > a::after {
+    display: none;
   }
 }
 
@@ -476,6 +529,69 @@ img {
   }
 }
 
+/* Detail page two-column layouts */
+.page-content .detail-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+.page-content .detail-col {
+  min-width: 0;
+}
+.page-content .detail-section-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Four-column pricing sub-grid (e.g. ÆGEAN 40/20) */
+.page-content .detail-pricing-four-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.page-content .detail-pricing-four-col .detail-col {
+  text-align: center;
+}
+.page-content .detail-pricing-four-col p {
+  margin: 0.25em 0;
+}
+
+/* Tone samples: larger video/embed in two-col (e.g. ÆGEAN Series) */
+.page-content .detail-tone-samples .detail-col object,
+.page-content .detail-tone-samples .detail-col embed {
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+  min-height: 220px;
+  aspect-ratio: 16 / 9;
+}
+
+/* Single-model pricing (centered, each price on own line) */
+.page-content .detail-pricing-single {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.page-content .detail-pricing-single p {
+  margin: 0.25em 0;
+}
+
+@media (max-width: 768px) {
+  .page-content .detail-pricing-four-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .page-content .detail-two-col {
+    grid-template-columns: 1fr;
+  }
+  .page-content .detail-pricing-four-col {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Footer – matches page background */
 .site-footer {
   margin-top: auto;
@@ -489,6 +605,20 @@ img {
   max-width: var(--max-width);
   margin: 0 auto;
   text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-social a {
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+.footer-social a:hover {
+  color: var(--color-accent);
 }
 
 .footer-tagline {

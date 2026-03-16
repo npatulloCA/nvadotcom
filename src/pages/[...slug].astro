@@ -54,10 +54,14 @@ const transformContent = (html: string) =>
     .replace(/href="\//g, `href="${base}/`);
 
 const content = rawContent ? transformContent(rawContent) : '';
-const isAmpGrid = path === '/guitar-amps/' || path === '/bass-amps/';
+const isWidePage =
+  path.startsWith('/guitar-amps/') ||
+  path.startsWith('/bass-amps/') ||
+  path.startsWith('/speaker-cabinets/') ||
+  path.startsWith('/about-nva/legacymodels/');
 ---
 <Layout title={title}>
-  <article class:list={['page-content', { 'page-content--wide': isAmpGrid }]}>
+  <article class:list={['page-content', { 'page-content--wide': isWidePage }]}>
     <h1>{title}</h1>
     {content ? <Fragment set:html={content} /> : null}
   </article>
