@@ -22,7 +22,7 @@
 }
 
 html {
-  font-size: 13px;
+  font-size: 1rem; /* 16px – improved readability */
   scroll-behavior: smooth;
 }
 
@@ -35,6 +35,8 @@ body {
   line-height: 1.8;
   text-shadow: 1px 1px #0d0d0d;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 .skip-link {
