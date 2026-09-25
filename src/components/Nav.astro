@@ -29,16 +29,34 @@ const toHref = (path: string) => {
         <a href={href} class={isActive ? 'active' : ''}>{item.title}</a>
         {hasChildren && (
           <ul class="nav-sublist">
-            {item.children.map((child) => (
-              <li class="nav-subitem">
-                <a
-                  href={toHref(child.path)}
-                  class={currentPath === child.path.replace(/\/$/, '') ? 'active' : ''}
-                >
-                  {child.title}
-                </a>
-              </li>
-            ))}
+            {item.children.map((child) => {
+              const childHasChildren = child.children && child.children.length > 0;
+              const childPath = child.path.replace(/\/$/, '');
+              return (
+                <li class={`nav-subitem ${childHasChildren ? 'has-children' : ''}`}>
+                  <a
+                    href={toHref(child.path)}
+                    class={currentPath === childPath || (childPath !== '/' && currentPath.startsWith(childPath)) ? 'active' : ''}
+                  >
+                    {child.title}
+                  </a>
+                  {childHasChildren && (
+                    <ul class="nav-sublist-deep">
+                      {child.children.map((grandchild) => (
+                        <li class="nav-subitem">
+                          <a
+                            href={toHref(grandchild.path)}
+                            class={currentPath === grandchild.path.replace(/\/$/, '') ? 'active' : ''}
+                          >
+                            {grandchild.title}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         )}
       </li>
